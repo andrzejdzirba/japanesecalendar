@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+
+    body, html {
+        font-family: 'Lato', sans-serif;
+    }
+
+    .jap {
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+}
+
+ 
