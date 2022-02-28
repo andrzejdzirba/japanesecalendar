@@ -526,7 +526,6 @@ const RangeSlider = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings,
 `;
 });
 var styleOutput = "";
-let all_pipstep = 60;
 const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slots) => {
   let CalendarData = [
     {
@@ -635,7 +634,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       first: "label",
       last: "label",
       step: 1,
-      pipstep: all_pipstep,
+      pipstep: "60",
       rest: "label",
       values: CalendarData[0].curr
     }, {
