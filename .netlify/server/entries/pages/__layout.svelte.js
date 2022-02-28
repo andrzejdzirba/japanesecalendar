@@ -526,6 +526,7 @@ const RangeSlider = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings,
 `;
 });
 var styleOutput = "";
+let all_pipstep = 60;
 const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slots) => {
   let CalendarData = [
     {
@@ -536,6 +537,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       end: "2022",
       dur: "154",
       diff: "0",
+      colour: "#FCC9B9",
       curr: [2020]
     },
     {
@@ -546,6 +548,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       end: "2022",
       dur: "4",
       diff: "2019",
+      colour: "#89729E",
       curr: [4]
     },
     {
@@ -556,6 +559,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       end: "2019",
       dur: "31",
       diff: "1989",
+      colour: "#FFA631",
       curr: [31]
     },
     {
@@ -566,6 +570,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       end: "1989",
       dur: "64",
       diff: "1926",
+      colour: "#645530",
       curr: [64]
     },
     {
@@ -576,6 +581,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       end: "1926",
       dur: "15",
       diff: "1912",
+      colour: "#F8674F",
       curr: [15]
     },
     {
@@ -586,18 +592,40 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       end: "1912",
       dur: "45",
       diff: "1868",
+      colour: "#1F4788",
       curr: [45]
     }
   ];
+  let all_colour = "#000";
+  let menu = null;
   let $$settled;
   let $$rendered;
   do {
     $$settled = true;
-    $$rendered = `<div id="${"mainwrapper"}" class="${"h-full w-full bg-gradient-to-r from-gray-100 to-gray-300"}"><div class="${"container mx-auto"}"><div class="${"m-2 p-2"}"><h1 class="${"uppercase text-black-500 text-3xl jap"}">\u897F\u66A6 \u30AB\u30EB\u30AD\u30E5\u30EC\u30FC\u30BF\u30FC
-      </h1></div>
+    $$rendered = `<div id="${"mainwrapper"}" class="${"h-full w-full"}"><div id="${"mainkanji"}" class="${"h-full w-full p-5"}"><div class="${"container mx-auto bg-white opacity-90 w-full lg:w-2/3 drop-shadow rounded"}"><div class="${"px-2 py-5 flex items-center"}"><img class="${"inline-flex"}" src="${"/9965.png"}" alt="${"\u897F\u66A6 \u30AB\u30EB\u30AD\u30E5\u30EC\u30FC\u30BF\u30FC"}">
 
-    
-      <div class="${"text-black jap border border-2 border-red-200 m-2 p-2 bg-gray-50 hover:bg-white duration-300 drop-shadow-md"}"><h2>\u897F\u66A6 ${(0, import_index_ac0a3e14.e)(CalendarData[0].curr)} \u5E74</h2>
+          <h1 class="${"inline-flex grow uppercase text-black-500 text-xl jap"}">\u897F\u66A6 \u30AB\u30EB\u30AD\u30E5\u30EC\u30FC\u30BF\u30FC
+          </h1>
+
+
+       
+            <div class="${"relative z-50 justify-self-end"}"${(0, import_index_ac0a3e14.h)("this", menu, 0)}><button class="${"menu"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" height="${"26"}" viewBox="${"0 0 24 24"}" width="${"26"}" fill="${"#333"}"><path d="${"M21 4H11l-1-3H3c-1.1 0-2 .9-2 2v15c0 1.1.9 2 2 2h8l1 3h9c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7 16c-2.76 0-5-2.24-5-5s2.24-5 5-5c1.35 0 2.48.5 3.35 1.3L9.03 8.57c-.38-.36-1.04-.78-2.03-.78-1.74 0-3.15 1.44-3.15 3.21S5.26 14.21 7 14.21c2.01 0 2.84-1.44 2.92-2.41H7v-1.71h4.68c.07.31.12.61.12 1.02C11.8 13.97 9.89 16 7 16zm6.17-5.42h3.7c-.43 1.25-1.11 2.43-2.05 3.47-.31-.35-.6-.72-.86-1.1l-.79-2.37zm8.33 9.92c0 .55-.45 1-1 1H14l2-2.5-1.04-3.1 3.1 3.1.92-.92-3.3-3.25.02-.02c1.13-1.25 1.93-2.69 2.4-4.22H20v-1.3h-4.53V8h-1.29v1.29h-1.44L11.46 5.5h9.04c.55 0 1 .45 1 1v14z"}"></path><path d="${"M0 0h24v24H0zm0 0h24v24H0z"}" fill="${"none"}"></path></svg></button>
+            
+                ${``}</div></div>
+
+
+        <div class="${"bg-gray-100 p-5 duration-300 drop-shadow-md"}">${`\u30B9\u30E9\u30A4\u30C0\u30FC\u3092\u52D5\u304B\u3059\u3053\u3068\u3067\u3001\u5E74\u53F7\u304B\u3089\u897F\u66A6\u3092\u3001\u897F\u66A6\u304B\u3089\u5E74\u53F7\u3092\u77E5\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3002`}
+          
+          ${``}
+          
+          ${``}
+
+          ${``}
+          
+          ${``}</div>
+ 
+
+      <div class="${"text-black jap border opacity-95 rounded-sm shadow-md m-2 p-2 bg-gradient-to-r from-white to-gray-100 hover:bg-white duration-300 drop-shadow-md"}" style="${"--range-handle-focus: " + (0, import_index_ac0a3e14.e)(all_colour) + "; --range-handle: " + (0, import_index_ac0a3e14.e)(all_colour) + "; --range-handle-inactive:" + (0, import_index_ac0a3e14.e)(all_colour) + ";"}"><h2>\u897F\u66A6 ${(0, import_index_ac0a3e14.e)(CalendarData[0].curr)} \u5E74</h2>
         ${(0, import_index_ac0a3e14.v)(RangeSlider, "RangeSlider").$$render($$result, {
       id: "all",
       min: 1868,
@@ -605,8 +633,9 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       pips: true,
       float: true,
       first: "label",
+      last: "label",
       step: 1,
-      pipstep: 50,
+      pipstep: all_pipstep,
       rest: "label",
       values: CalendarData[0].curr
     }, {
@@ -620,7 +649,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
 
 
 
-      <div class="${"sliderwrapper jap opacity-20 text-black border border-2 border-gray-300 m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u4EE4\u548C ${(0, import_index_ac0a3e14.e)(CalendarData[1].curr)} \u5E74 </h2>
+      <div class="${"sliderwrapper jap opacity-30 text-black border-x-4 border-x-transparent rounded-md m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u4EE4\u548C ${(0, import_index_ac0a3e14.e)(CalendarData[1].curr)} \u5E74 </h2>
         ${(0, import_index_ac0a3e14.v)(RangeSlider, "RangeSlider").$$render($$result, {
       id: "rv",
       min: 1,
@@ -641,7 +670,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
  
 
 
-      <div class="${"sliderwrapper jap opacity-20 text-black border border-2 border-gray-300 m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u5E73\u6210 ${(0, import_index_ac0a3e14.e)(CalendarData[2].curr)} \u5E74 </h2>
+      <div class="${"sliderwrapper jap opacity-30 text-black border-x-4 border-x-transparent rounded-md m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u5E73\u6210 ${(0, import_index_ac0a3e14.e)(CalendarData[2].curr)} \u5E74 </h2>
         ${(0, import_index_ac0a3e14.v)(RangeSlider, "RangeSlider").$$render($$result, {
       id: "hv",
       min: 1,
@@ -663,7 +692,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
  
 
 
-      <div class="${"sliderwrapper jap opacity-20 text-black border border-2 border-gray-300 m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u662D\u548C ${(0, import_index_ac0a3e14.e)(CalendarData[3].curr)} \u5E74 </h2>
+      <div class="${"sliderwrapper jap opacity-30 text-black border-x-4 border-x-transparent rounded-md m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u662D\u548C ${(0, import_index_ac0a3e14.e)(CalendarData[3].curr)} \u5E74 </h2>
         ${(0, import_index_ac0a3e14.v)(RangeSlider, "RangeSlider").$$render($$result, {
       id: "sv",
       min: 1,
@@ -686,7 +715,7 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
 
 
 
-      <div class="${"sliderwrapper jap opacity-20 text-black border border-2 border-gray-300 m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u5927\u6B63 ${(0, import_index_ac0a3e14.e)(CalendarData[4].curr)} \u5E74 </h2>
+      <div class="${"sliderwrapper jap opacity-30 text-black border-x-4 border-x-transparent rounded-md m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u5927\u6B63 ${(0, import_index_ac0a3e14.e)(CalendarData[4].curr)} \u5E74 </h2>
         ${(0, import_index_ac0a3e14.v)(RangeSlider, "RangeSlider").$$render($$result, {
       id: "tv",
       min: 1,
@@ -705,12 +734,10 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
       }
     }, {})}</div>
 
- 
-
-
+  
 
       
-      <div class="${"sliderwrapper jap opacity-20 text-black border border-2 border-gray-300 m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u660E\u6CBB ${(0, import_index_ac0a3e14.e)(CalendarData[5].curr)} \u5E74 </h2>
+      <div class="${"sliderwrapper jap opacity-30 text-black border-x-4 border-x-transparent rounded-md m-2 p-2 bg-gray-100 hover:drop-shadow hover:bg-gray-50 duration-300"}"><h2>\u660E\u6CBB ${(0, import_index_ac0a3e14.e)(CalendarData[5].curr)} \u5E74 </h2>
         ${(0, import_index_ac0a3e14.v)(RangeSlider, "RangeSlider").$$render($$result, {
       id: "mv",
       min: 1,
@@ -732,17 +759,17 @@ const _layout = (0, import_index_ac0a3e14.c)(($$result, $$props, $$bindings, slo
 
  
 
-      <div class="${"my-10 jap border border-1 border-gray-200 m-2 p-2"}">\u660E\u6CBB	\u3081\u3044\u3058	1868\uFF5E1912
-        <br>
-        \u5927\u6B63	\u305F\u3044\u3057\u3087\u3046	1912\uFF5E1926	
-        <br>
-        \u662D\u548C	\u3057\u3087\u3046\u308F	1926\uFF5E1989	
-        <br>
-        \u5E73\u6210	\u3078\u3044\u305B\u3044	1989\uFF5E2019
-        <br>
-        \u4EE4\u548C \u308C\u3044\u308F\u30002019\uFF5E
-        
-      </div></div></div>`;
+      <div class="${"bg-gray-100 p-5 duration-300 drop-shadow-md"}">\u660E\u6CBB	\u3081\u3044\u3058	1868\uFF5E1912
+            <br>
+            \u5927\u6B63	\u305F\u3044\u3057\u3087\u3046	1912\uFF5E1926	
+            <br>
+            \u662D\u548C	\u3057\u3087\u3046\u308F	1926\uFF5E1989	
+            <br>
+            \u5E73\u6210	\u3078\u3044\u305B\u3044	1989\uFF5E2019
+            <br>
+            \u4EE4\u548C \u308C\u3044\u308F\u30002019\uFF5E
+            
+          </div></div></div></div>`;
   } while (!$$settled);
   return $$rendered;
 });

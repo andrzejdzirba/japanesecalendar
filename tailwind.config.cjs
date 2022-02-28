@@ -1,7 +1,8 @@
 module.exports = {
   mode: 'jit', 
-  purge: ["./src/**/*.svelte"],
-  content: [],
+ 
+    content: ['./src/**/*.{js,jsx,ts,tsx,svelte}'],
+ 
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
@@ -10,7 +11,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      '2xl': '1536px',
+      '2xl': '1440px',
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,

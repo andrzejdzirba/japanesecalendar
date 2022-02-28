@@ -5,6 +5,7 @@
 
 
 @layer base {
+ 
 
     body, html {
         font-family: 'Lato', sans-serif;
@@ -13,6 +14,32 @@
     .jap {
         font-family: 'Noto Sans JP', sans-serif;
     }
+
+
+#mainwrapper {
+ 
+}
+
+#mainkanji {
+    background-image: url('/digital-paper-g6298e2fa2_1920.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+
+  
+}
+
+ #all.rangeSlider .rangeFloat,  .activefloat .rangeFloat{
+	opacity: 1!important;
+	top: -0.2em;
+	transform: translate(-50%, -100%);
+ 
+}
+
+
+.rangePips {
+	font-size:0.8rem;
 }
 
  
